@@ -18,6 +18,8 @@ public class SalaryInfo {
 
         Arrays.stream(data)
                 .map(line -> line.split(" "))
+                //check if name from `data` is inside `names` array
+                .filter(splitData -> nameList.contains(splitData[1]))
                 .filter(splitData -> {
                     // check if data is inclusively inside a date range
                     LocalDate actualDate = LocalDate.parse(splitData[0], formatter);
